@@ -1,0 +1,2 @@
+Usando a FK, só é listado o código do produto, mas não exibe o nome.
+    Como importar também o nome?
