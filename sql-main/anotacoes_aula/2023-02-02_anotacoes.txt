@@ -1,0 +1,30 @@
+bibliotecas python para sql:
+    pymysql
+    mymssql
+    sqlalchemy
+
+INSERT INTO <schema>.<tabela> (<colunas>)
+VALUES (<dados>)
+
+
+SELECT <colunas> FROM <tabela> LIMIT <número de linhas a exibir>
+    SELECT * FROM <tabela> LIMIT 5 -> exibirá todas as colunas da tabela, até a 5ª linha 
+           |
+           V
+           * mostra todas as colunas
+
+    ORDER BY <nm_cliente> DESC --> ordenará pelo nome do cliente, do Z ao A
+
+SELECT * FROM aula.cliente
+where ds_complemento is not null
+where <coluna> = x
+and <coluna> is not null
+
+where nm_cliente is like 'B%' -> exibe os clientes com nome iniciados em B
+
+
+Tarefa pra casa:
+www.mockaroo.com 
+
+gerar dados para inserir na tabela cliente
+substitui formato para SQL
