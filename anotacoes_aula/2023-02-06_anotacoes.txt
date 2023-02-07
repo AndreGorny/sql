@@ -1,2 +1,15 @@
 Usando a FK, só é listado o código do produto, mas não exibe o nome.
     Como importar também o nome?
+
+
+SELECT DISTINCT --> busca repetições
+
+
+INSERT INTO aula.endereco (nm_logradouro, tp_logradouro, nm_bairro)
+SELECT  nm_logradouro,
+	    tp_logradouro, 
+        nm_bairro
+FROM stage_cliente
+GROUP BY nm_logradouro,
+		 tp_logradouro, 
+		 nm_bairro
