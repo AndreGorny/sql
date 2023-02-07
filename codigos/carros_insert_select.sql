@@ -15,9 +15,7 @@ GROUP BY ds_marca,
 ;
 
 SELECT * FROM aula.carro
-ORDER BY ds_marca
-
-INSERT INTO aula.estoque_carro ();
+ORDER BY ds_marca;
 
 INSERT INTO aula.estoque_carro (fk_carro, ds_marca, nm_carro, dt_fabricacao, clr_carro)
 SELECT cd_carro,
@@ -37,3 +35,9 @@ GROUP BY clr_carro,
          dt_fabricacao,
          nr_km,
          vl_carro
+         ;
+
+SELECT nm_carro, ds_marca, count(*) 
+FROM aula.carro
+GROUP BY nm_carro, ds_marca
+ORDER BY count(*) DESC
