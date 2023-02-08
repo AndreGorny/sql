@@ -39,7 +39,7 @@ GROUP BY nm_street,
          nm_city,
          nm_state
 ;
-ALTER TABLE aula.cliente MODIFY nr_cpf VARCHAR(15)
+ALTER TABLE aula.cliente MODIFY nr_cpf VARCHAR(20)
 ;
 
 /*----------------------------------------------------------------------*/
@@ -49,7 +49,7 @@ INSERT INTO aula.cliente (nm_cliente,
                           nr_cpf,
                           ds_fone,
                           fk_endereco,
-                          nr_street);
+                          nr_street)
 SELECT a.nm_cliente,
        a.dt_nascimento,
        a.nr_cpf,
@@ -58,11 +58,33 @@ SELECT a.nm_cliente,
        a.nr_street
 FROM aula.stage_cliente a
 INNER JOIN aula.endereco b
-ON a.nm_state = b.nm_street
+ON a.nm_street = b.nm_street
 AND a.tp_street = b.tp_street
 AND a.nm_city = b.nm_city
 AND a.nm_state = b.nm_state;
 
 SELECT * FROM cliente;
-SELECT * FROM stage_cliente;
+SELECT DISTINCT nm_city FROM stage_cliente
+;
 SELECT * FROM endereco;
+
+/*----------------------------------------------------------------*/
+
+CREATE TABLE aula.phone (
+    cd_phone INT AUTO_INCREMENT PRIMARY KEY,
+    nr_phone VARCHAR(20)
+);
+
+INSERT INTO aula.phone (nr_phone)
+SELECT ds_fone FROM aula.cliente;
+
+SELECT * FROM aula.cliente;
+
+/*---------------------------------------------------------*/
+ALTER TABLE aula.cliente DROP COLUMN ds_fone;
+ALTER TABLE aula.cliente ADD fk_phone INT;
+ALTER TABLE aula.cliente 
+    ADD FOREIGN KEY (fk_phone) REFERENCES aula.phone (cd_phone);
+
+INSERT INTO aula.cliente (fk_phone)
+SELECT cd_phone FROM aula.phone;

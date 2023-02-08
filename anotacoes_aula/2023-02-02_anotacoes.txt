@@ -20,7 +20,7 @@ where ds_complemento is not null
 where <coluna> = x
 and <coluna> is not null
 
-where nm_cliente is like 'B%' -> exibe os clientes com nome iniciados em B
+where nm_cliente like 'B%' -> exibe os clientes com nome iniciados em B
 
 
 Tarefa pra casa:
