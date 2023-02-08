@@ -1,0 +1,4 @@
+JOIN
+    pode ser inner join ou outer join 
+    - inner join só retorna informação quando os dois lados possuem relacionamento (chave extrangeira)
+    - outer join possui 3 tipos: left join, right join e full outer
