@@ -87,5 +87,5 @@ ALTER TABLE aula.cliente ADD fk_phone INT;
 ALTER TABLE aula.cliente 
     ADD FOREIGN KEY (fk_phone) REFERENCES aula.phone (cd_phone);
 
--- INSERT INTO aula.cliente (fk_phone)
--- SELECT cd_phone FROM aula.phone;
+INSERT INTO aula.cliente (fk_phone)
+SELECT cd_phone FROM aula.phone;
