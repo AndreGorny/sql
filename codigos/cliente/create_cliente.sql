@@ -11,6 +11,7 @@ CREATE TABLE aula.cliente(
     FOREIGN KEY (fk_endereco) REFERENCES aula.endereco (cd_endereco)
 );
 
+DROP TABLE aula.cliente;
 CREATE TABLE aula.endereco(
     cd_endereco INT AUTO_INCREMENT PRIMARY KEY,
     nm_street VARCHAR(100),
@@ -39,7 +40,7 @@ GROUP BY nm_street,
          nm_city,
          nm_state
 ;
-ALTER TABLE aula.cliente MODIFY nr_cpf VARCHAR(20)
+ALTER TABLE aula.cliente MODIFY nr_cpf VARCHAR(20) NOT NULL
 ;
 
 /*----------------------------------------------------------------------*/
@@ -86,5 +87,5 @@ ALTER TABLE aula.cliente ADD fk_phone INT;
 ALTER TABLE aula.cliente 
     ADD FOREIGN KEY (fk_phone) REFERENCES aula.phone (cd_phone);
 
-INSERT INTO aula.cliente (fk_phone)
-SELECT cd_phone FROM aula.phone;
+-- INSERT INTO aula.cliente (fk_phone)
+-- SELECT cd_phone FROM aula.phone;
