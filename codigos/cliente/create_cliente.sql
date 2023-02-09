@@ -89,3 +89,20 @@ ALTER TABLE aula.cliente
 
 INSERT INTO aula.cliente (fk_phone)
 SELECT cd_phone FROM aula.phone;
+
+UPDATE aula.cliente a
+INNER JOIN aula.phone b
+ON a.ds_fone = b.nr_phone
+SET a.fk_phone = b.cd_phone;
+
+SELECT *
+FROM aula.cliente
+LEFT OUTER JOIN aula.phone
+ON cliente.fk_phone = phone.cd_phone
+
+UNION
+
+SELECT *
+FROM aula.cliente
+RIGHT OUTER JOIN aula.phone
+ON cliente.fk_phone = phone.cd_phone
