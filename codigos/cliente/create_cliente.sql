@@ -82,7 +82,7 @@ SELECT ds_fone FROM aula.cliente;
 SELECT * FROM aula.cliente;
 
 /*---------------------------------------------------------*/
-ALTER TABLE aula.cliente DROP COLUMN ds_fone;
+-- ALTER TABLE aula.cliente DROP COLUMN ds_fone;
 ALTER TABLE aula.cliente ADD fk_phone INT;
 ALTER TABLE aula.cliente 
     ADD FOREIGN KEY (fk_phone) REFERENCES aula.phone (cd_phone);
